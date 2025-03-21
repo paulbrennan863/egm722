@@ -5,6 +5,13 @@ from cartopy.feature import ShapelyFeature
 import cartopy.crs as ccrs
 import matplotlib.patches as mpatches
 import matplotlib.lines as mlines
+import requests
+
+
+response = requests.get("https://codecademy.com")
+print(f"{response.status_code}: {response.reason}")
+response = requests.get("https://codecademy.com/cat-pictures")
+print(f"{response.status_code}: {response.reason}")
 
 
 def generate_handles(labels, colors, edge='k', alpha=1):
@@ -172,6 +179,6 @@ for ind, row in towns.iterrows(): # towns.iterrows() returns the index and row
 
 # add the scale bar to the axis
 scale_bar(ax)
-
+fig.show() # to show the updated figure
 # save the figure as map.png, cropped to the axis (bbox_inches='tight'), and a dpi of 300
 fig.savefig('map.png', bbox_inches='tight', dpi=300)
