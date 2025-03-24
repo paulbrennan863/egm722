@@ -6,6 +6,17 @@ import cartopy.crs as ccrs
 import matplotlib.patches as mpatches
 import matplotlib.lines as mlines
 import requests
+import xml.etree.ElementTree as ET
+
+tree = ET.parse('TestAEMP2.xml')
+root = tree.getroot()
+num0fchilfren = root.__len__()
+print(num0fchilfren)
+
+
+print(tree.__sizeof__())
+print(root.tag)
+
 
 
 response = requests.get("https://codecademy.com")
